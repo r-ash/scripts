@@ -1,0 +1,32 @@
+#!/bin/bash
+
+set -e
+
+usage() { echo "$(basename "$0") [-h] [-i] [-o] -- programe to convert eps file to svg. You must have ghostscript installed so ps2pdf is available and pdf2svg installed
+
+This is just a wrapper around those 2 functions to do it in one call
+
+where:
+  -h    display this page
+  -i    input file
+  -o    name for output file";}
+
+while getopts ':h:i:o:' option; do
+  case "$option" in
+    h) usage
+       exit 0;
+       ;;
+    i) IN=${OPTARG}
+       ;;
+    o) OUT=${OPTARG}
+       ;;
+    *) usage
+       exit 0;
+  esac
+done
+
+echo "$IN"
+echo "$OUT"
+
+`ps2pdf -dEPSCrop $IN /tmp/tmp.pdf`
+`pdf2svg /tmp/tmp.pdf $OUT`
