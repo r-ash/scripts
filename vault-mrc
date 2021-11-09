@@ -1,0 +1,4 @@
+#!/bin/bash
+## Login to mrc-ide vault
+export VAULT_ADDR=https://vault.dide.ic.ac.uk:8200
+vault login -method=github
