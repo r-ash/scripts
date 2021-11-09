@@ -3,6 +3,7 @@
 At the moment there are scripts to
 
 * git_cleanup.sh - remove any local branches which have been merged into master
+* watchers.sh - Get the procs sorted by the number of inotify watchers
 
 ## Making scripts avaialble
 
